@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val smartPhone = SmartPhone(Battery(), MemoryCard(), SIMCard(ServiceProvider()))
+        // Field Injection
+        SIMCard().serviceProvider = ServiceProvider()
+
+        val smartPhone = SmartPhone(Battery(), MemoryCard(), SIMCard())
             .makeCallRecording()
     }
 }
