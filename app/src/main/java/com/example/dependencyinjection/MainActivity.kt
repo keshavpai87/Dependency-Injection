@@ -7,6 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var smartPhone : SmartPhone
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,7 +20,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val smartPhone = SmartPhone(Battery(), MemoryCard(), SIMCard(ServiceProvider()))
-            .makeCallRecording()
+        DaggerSmartPhoneComponent.create().getSmartPhone().makeCallRecording()
+
+        /*val smartPhone = SmartPhone(Battery(), MemoryCard(), SIMCard(ServiceProvider()))
+            .makeCallRecording()*/
     }
 }

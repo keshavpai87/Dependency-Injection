@@ -1,8 +1,9 @@
 package com.example.dependencyinjection
 
 import android.util.Log
+import javax.inject.Inject
 
-class SIMCard(val serviceProvider : ServiceProvider) {
+class SIMCard @Inject constructor(private val serviceProvider : ServiceProvider) {
 
     init {
         Log.i("MyTag", "Sim Card Constructed")
