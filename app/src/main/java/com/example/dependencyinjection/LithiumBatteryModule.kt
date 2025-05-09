@@ -1,5 +1,6 @@
 package com.example.dependencyinjection
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
@@ -12,8 +13,14 @@ class LithiumBatteryModule {
         return LithiumBattery()
     }*/
 
+    // Without making the code concise, making use of the injection constructor
     @Provides
     fun providesLithiumBattery(lithiumBattery: LithiumBattery) : Battery {
         return lithiumBattery
     }
+
+    /*// Making the code more concise
+    @Binds
+    abstract fun providesLithiumBattery(lithiumBattery: LithiumBattery) : Battery*/
+
 }
