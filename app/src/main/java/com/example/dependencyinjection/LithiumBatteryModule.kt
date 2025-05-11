@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class LithiumBatteryModule {
+abstract class LithiumBatteryModule {
 
     /*@Provides
     // This is not required here as we already have injected the LithiumBattery constructor
@@ -13,14 +13,14 @@ class LithiumBatteryModule {
         return LithiumBattery()
     }*/
 
-    // Without making the code concise, making use of the injection constructor
+    /*// Without making the code concise, making use of the injection constructor
     @Provides
     fun providesLithiumBattery(lithiumBattery: LithiumBattery) : Battery {
         return lithiumBattery
-    }
+    }*/
 
-    /*// Making the code more concise
+    // Making the code more concise
     @Binds
-    abstract fun providesLithiumBattery(lithiumBattery: LithiumBattery) : Battery*/
+    abstract fun bindsLithiumBattery(lithiumBattery: LithiumBattery) : Battery
 
 }
